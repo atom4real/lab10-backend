@@ -3,12 +3,14 @@ package se331.rest.entity;
 import lombok.*;
 import javax.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+
 
 public class Organizer{
     @Id
@@ -17,5 +19,6 @@ public class Organizer{
     Long id;
     String name;
     @OneToMany(mappedBy = "Organizer")
-    List<Event> ownEvents;
+    @Builder.Default
+    List<Event> ownEvents = new ArrayList<>();
 }
