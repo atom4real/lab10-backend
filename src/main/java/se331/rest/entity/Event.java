@@ -1,18 +1,16 @@
 package se331.rest.entity;
 
-
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +29,4 @@ public class Event {
     @Builder.Default
     List<Participant> participants = new ArrayList<>();
 }
-
 

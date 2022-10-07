@@ -1,15 +1,17 @@
 package se331.rest.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Participant{
+public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
@@ -17,6 +19,6 @@ public class Participant{
     String name;
     String telNo;
     @ManyToMany
-    List<Event> eventHistory;
-
+    @Builder.Default
+    List<Event> eventHistory = new ArrayList<>();
 }
