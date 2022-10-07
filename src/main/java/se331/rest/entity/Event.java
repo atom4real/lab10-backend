@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @Builder
@@ -27,7 +28,8 @@ public class Event {
     @ManyToOne
     Organizer organizer;
     @ManyToMany(mappedBy = "eventHistory")
-    List<Participant> participants;
+    @Builder.Default
+    List<Participant> participants = new ArrayList<>();
 }
 
 
